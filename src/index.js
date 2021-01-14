@@ -1,12 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
 import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import Game from './containers/Game';
+import reducer from './reducers/reducer';
+import registerServiceWorker from './registerServiceWorker';
+
+const store = createStore(
+  reducer
+)
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+  <Provider store={store}>
+      <Game />
+  </Provider>,
+  document.getElementById('root'),
 );
+registerServiceWorker();
