@@ -1,14 +1,29 @@
 import { connect } from 'react-redux';
 
 import App from '../App';
-import { moveObjects, updateObjects } from '../actions/index';
+import {
+    changeHeliState,
+    moveObjects,
+    onKeyDown,
+    onKeyUp,
+    updateObjects
+} from '../actions/index';
 
 const mapDispatchToProps = dispatch => ({
-    moveObjects: (keyCode) => {
-        dispatch(moveObjects(keyCode));
+    moveObjects: (event) => {
+        dispatch(moveObjects(event));
+    },
+    onKeyUp: (event) => {
+        dispatch(onKeyUp(event));
+    },
+    onKeyDown: (event) => {
+        dispatch(onKeyDown(event));
     },
     updateObjects: (canvasRef, newVertVelocity) => {
         dispatch(updateObjects(canvasRef, newVertVelocity));
+    },
+    changeHeliState: () => {
+        dispatch(changeHeliState());
     }
 });
 

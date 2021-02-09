@@ -1,23 +1,23 @@
 function moveObjects(state, action) {
-    if (!action.keyCode) return state;
-
-    const { keyCode } = action;
+    if (!action.event) return state;
 
     const helicopter = { ...state.helicopter };
+    const keysPressed = { ...state.keysPressed };
 
-    if (keyCode === 38) {
+    if (keysPressed.up) {
         helicopter.vertVelocity = state.helicopter.vertVelocity + state.lift
     }
-    if (keyCode === 39) {
+    if (keysPressed.right) {
         helicopter.x = state.helicopter.x + 5
     }
-    if (keyCode === 37) {
+    if (keysPressed.left) {
         helicopter.x = state.helicopter.x - 5
     }
 
     return {
         ...state,
-        helicopter
+        helicopter,
+        keysPressed
     }
 }
 

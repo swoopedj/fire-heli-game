@@ -8,11 +8,11 @@ class Game extends Component {
     }
 
     componentDidMount() {
-        const { moveObjects } = this.props;
+        const { moveObjects, onKeyDown, onKeyUp } = this.props;
 
-        document.addEventListener("keydown", e => {
-            moveObjects(e.keyCode);
-        });
+        document.addEventListener("keydown", moveObjects);
+        document.addEventListener("keydown", onKeyDown);
+        document.addEventListener("keyup", onKeyUp);
     }
 
     render() {
