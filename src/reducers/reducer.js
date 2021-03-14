@@ -12,8 +12,8 @@ import updateObjects from './updateObjects';
 import changeHeliState from './changeHeliState';
 
 const initialState = {
-    gravity: 0.1,
-    lift: -2,
+    gravity: 0.2,
+    lift: -0.5,
     helicopter: {
         x: 100,
         y: 100,
@@ -21,7 +21,9 @@ const initialState = {
         vertVelocity: 0,
         horizVelocity: 0,
         horizMomentum: 0,
-        imageState: 1
+        imageState: 1,
+        direction: 'right',
+        bucketState: 'up'
     },
     keysPressed: {
         left: false,
