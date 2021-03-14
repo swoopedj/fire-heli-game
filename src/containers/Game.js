@@ -10,8 +10,8 @@ import {
 } from '../actions/index';
 
 const mapDispatchToProps = dispatch => ({
-    moveObjects: (event) => {
-        dispatch(moveObjects(event));
+    moveObjects: () => {
+        dispatch(moveObjects());
     },
     onKeyUp: (event) => {
         dispatch(onKeyUp(event));

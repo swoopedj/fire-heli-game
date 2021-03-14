@@ -3,7 +3,7 @@ function onKeyDown(state, action) {
 
     const { event } = action;
 
-    const keysPressed = { ...state.keysPressed };
+    const { helicopter, keysPressed } = state;
 
     if (event.keyCode === 38) {
         keysPressed.up = true;
@@ -13,6 +13,22 @@ function onKeyDown(state, action) {
     }
     if (event.keyCode === 37) {
         keysPressed.left = true;
+    }
+    if (event.keyCode === 32) {
+        if (helicopter.bucketState === 'up') {
+            // Trigger bucket drop animation
+
+        }
+
+        if (helicopter.bucketState === 'down') {
+            // Trigger bucket raise animation
+
+        }
+
+        if (helicopter.bucketState === 'full') {
+            // Trigger water release animation
+
+        }
     }
 
     return {
