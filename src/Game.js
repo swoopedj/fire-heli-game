@@ -1,10 +1,35 @@
 import React, { Component } from 'react';
-import Canvas from './Canvas';
+import HelicopterCanvas from './HelicopterCanvas';
+import TerrainCanvas from './TerrainCanvas';
+
+const DIMENSIONS = {
+    height: 750,
+    width: 1400
+};
+
+const TERRAIN_DIMENSIONS = {
+    groundHeight: 10,
+    brushHeight: 20,
+    canopyHeight: 40,
+    shoreX: 550,
+    lakeWidth: 50
+}
+
+const containerStyle = {
+    position: 'relative'
+};
+
+const canvasStyle = {
+    position: 'absolute',
+    top: '0px',
+    left: '0px'
+};
 
 class Game extends Component {
     constructor(props) {
         super(props);
-        this.canvasRef = React.createRef();
+        this.helicopterRef = React.createRef();
+        this.terrainRef = React.createRef();
     }
 
     componentDidMount() {
@@ -17,7 +42,11 @@ class Game extends Component {
 
     render() {
         return (
-              <Canvas canvasRef={this.canvasRef} width={1000} height={650} {...this.props} />
+            <div style={containerStyle}>
+              <HelicopterCanvas helicopterRef={this.helicopterRef} style={canvasStyle} width={DIMENSIONS.width} height={DIMENSIONS.height} {...this.props} />
+              <TerrainCanvas terrainRef={this.terrainRef} style={canvasStyle} width={DIMENSIONS.width} height={DIMENSIONS.height} {...TERRAIN_DIMENSIONS} {...this.props} />
+            </div>
+
         );
     }
 }
