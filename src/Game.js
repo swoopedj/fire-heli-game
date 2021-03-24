@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import HelicopterCanvas from './HelicopterCanvas';
 import TerrainCanvas from './TerrainCanvas';
+import MountainCanvas from './MountainCanvas';
 
 const DIMENSIONS = {
     height: 750,
@@ -30,6 +31,7 @@ class Game extends Component {
         super(props);
         this.helicopterRef = React.createRef();
         this.terrainRef = React.createRef();
+        this.mountainsRef = React.createRef();
     }
 
     componentDidMount() {
@@ -45,6 +47,7 @@ class Game extends Component {
             <div style={containerStyle}>
               <HelicopterCanvas helicopterRef={this.helicopterRef} style={canvasStyle} width={DIMENSIONS.width} height={DIMENSIONS.height} {...this.props} />
               <TerrainCanvas terrainRef={this.terrainRef} style={canvasStyle} width={DIMENSIONS.width} height={DIMENSIONS.height} {...TERRAIN_DIMENSIONS} {...this.props} />
+              <MountainCanvas mountainsRef={this.mountainsRef} style={canvasStyle} style={canvasStyle} width={DIMENSIONS.width} height={DIMENSIONS.height} {...this.props} />
             </div>
 
         );

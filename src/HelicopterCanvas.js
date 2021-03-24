@@ -13,10 +13,11 @@ class HelicopterCanvas extends Component {
     }
 
     draw = (ctx) => {
-        const { helicopterRef, helicopter } = this.props
-        ctx.fillStyle = "white";
+        const { helicopterRef, helicopter, height, width } = this.props
         ctx.fillRect(0, 0, helicopterRef.current.width,   
                      helicopterRef.current.height);
+
+         ctx.clearRect(0,0,width,height);
 
         var heliImage = new Image();
         if (helicopter.direction === 'left') {
@@ -61,9 +62,11 @@ class HelicopterCanvas extends Component {
     render() {
         const { helicopterRef, height, width, style } = this.props;
 
+        const helicopterStyle = { ...style, zIndex: 2};
+
         return (
             <div>
-                <canvas ref={helicopterRef} width={width} height={height} style={style} />
+                <canvas ref={helicopterRef} width={width} height={height} style={helicopterStyle} />
             </div>
         );
     }

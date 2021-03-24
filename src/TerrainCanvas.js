@@ -93,9 +93,11 @@ class TerrainCanvas extends Component {
     render() {
         const { terrainRef, height, width, style } = this.props;
 
+        const terrainStyle = { ...style, zIndex: 3};
+
         return (
             <div>
-                <canvas ref={terrainRef} width={width} height={height} style={style} />
+                <canvas ref={terrainRef} width={width} height={height} style={terrainStyle} />
             </div>
         );
     }
