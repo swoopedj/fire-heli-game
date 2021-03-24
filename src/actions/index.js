@@ -4,9 +4,8 @@ export const ON_KEY_DOWN = 'ON_KEY_DOWN';
 export const UPDATE_OBJECTS = 'UPDATE_OBJECTS';
 export const CHANGE_HELI_STATE = 'CHANGE_HELI_STATE';
 
-export const moveObjects = event => ({
-  type: MOVE_OBJECTS,
-  event,
+export const moveObjects = () => ({
+  type: MOVE_OBJECTS
 });
 
 export const onKeyDown = event => ({
